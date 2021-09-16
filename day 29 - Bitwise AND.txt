@@ -1,0 +1,41 @@
+!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'bitwiseAnd' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER N
+#  2. INTEGER K
+#
+
+def max_bit(n, k):
+    # Write your code here
+    maximum = 0
+    for i in range(1,n+1):
+        for j in range(1,i):
+            h = i & j
+            if maximum < h < k:
+                maximum = h
+            if maximum == k-1:
+                return maximum
+    return maximum
+
+if __name__ == '__main__':
+    t = int(input())
+
+    for t_itr in range(t):
+        
+        nk = input().split()
+
+        n = int(nk[0])
+
+        k = int(nk[1])
+        
+        print(max_bit(n,k))
